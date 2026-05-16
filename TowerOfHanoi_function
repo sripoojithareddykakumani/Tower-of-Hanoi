@@ -1,1 +1,22 @@
+void TowerOfHanoi(int n, int s, int h, int d) {
+   if(n==1) {
+     printf("Move disk from %d to %d\n", s,d);
+   } else {
+     TowerOfHanoi(n-1, s, d, h); 
+     printf("Move disk from %d to %d\n", s,d);
+     TowerOfHanoi(n-1, h, s, d);
+   }
+}
+
+/* Explanation using an example: Let n=3, and sourse rod s has 4 disks, helper rod h, destination rod d initially has 0 disks.
+   we are supposed to move 3 disks from s to d,
+   we will check if n=1, if it is then we directly transfer that disk from s to d.
+   else, we will call the towerofhanoi function recursively 
+   step-1: ToH(3,4,0,0)
+   step-2: ToH(2,4,0,0)
+   after the recursive call -> we will transfer 2 disks from s to h after that, we call the function recursively again
+   step-3: ToH(2,h,s,d) , this step will transfer the 2 disks from h to d
+   now we start from the if condition since we completed the else loop, so we already transferred 2 disks, we only have to transfer 1 disk from s to d,
+   step-4: checking if n==1, since n=1 , we will directly transfer the 1 disk from s to d. 
+   Main points include: Using a helper rod, Calling the function recursively.   */
 
